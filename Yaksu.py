@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands, tasks
 import datetime
+import os
 
 intents = discord.Intents.default()
 intents.voice_states = True  # 음성 상태를 감지하기 위한 권한
@@ -122,4 +123,5 @@ async def on_ready():
     reset_weekly_totals.start()  # 매주 월요일 오전 11시에 누적 시간 초기화
 
 # 봇 시작
-bot.run('Tc')
+access_token = os.environ ["BOT_TOKEN"]
+bot.run(access_token)
